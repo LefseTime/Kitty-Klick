@@ -9,15 +9,22 @@ import './App.css';
 class App extends React.Component {
   state = {
     kitties: kitties,
-    clicked: false,
     fail: false
   }
 
-  clickKitty = () => {
+  clickKitty = (kittyId) => {
     console.log('yaaaasssssss')
 
-    if (this.state.clicked === false) {this.setState({ clicked: true})}
-    else if (this.state.clicked === true) {this.setState({fail: true})}
+    const newKittiesList = this.state.kitties.map(kitty => {
+      //console.log(kittyId)
+      if (kitty.id === kittyId) {
+        return kitty.clicked = true
+        // return console.log(kitty.clicked)
+      }
+      else return kitty.clicked = false;
+    });
+    console.log(newKittiesList);
+    this.setState({kitties:newKittiesList})
   }
 
   render = () => (
@@ -25,20 +32,22 @@ class App extends React.Component {
       <Header />
       <div className="basic-info">
         <div className="title-container">
-            <h1 className="title">Kitty Klick</h1>
+          <h1 className="title">Kitty Klick</h1>
         </div>
         <div className="instructions">
-            <p>Click each kitty only once!</p>
+          <p>Click each kitty only once!</p>
         </div>
-    </div>
+      </div>
       {
         this.state.kitties.map(kitty => {
           return (
             <KittyCard
               clickKitty={this.clickKitty}
+              clicked={this.clicked}
               name={kitty.name}
               image={kitty.image}
               key={kitty.id}
+              id={kitty.id}
             />)
         })
       }

@@ -21,7 +21,7 @@ import "./KittyCard.css";
 
 const KittyCard = props => (
     <div className="card">
-        <div className="img-container" onClick={this.clickKitty}>
+        <div className="img-container" onClick={() => props.clickKitty(props.id)}>
             <img alt={props.name} src={props.image} />
         </div>
     </div>

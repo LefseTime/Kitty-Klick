@@ -2,31 +2,37 @@
     {
         "id": 1,
         "name": "fluffy chair cat",
-        "image": "./images/fluffy-chair.jpg"
+        "image": "./images/fluffy-chair.jpg",
+        "clicked": false
     },
     {
         "id": 2,
         "name": "fluffy chair cat",
-        "image": "./images/fluffy-chair.jpg"
+        "image": "./images/fluffy-chair.jpg",
+        "clicked": false
     },
     {
         "id": 3,
         "name": "fluffy chair cat",
-        "image": "./images/fluffy-chair.jpg"
+        "image": "./images/fluffy-chair.jpg",
+        "clicked": false
     },
     {
         "id": 4,
         "name": "fluffy chair cat",
-        "image": "./images/fluffy-chair.jpg"
+        "image": "./images/fluffy-chair.jpg",
+        "clicked": false
     },
     {
         "id": 5,
         "name": "fluffy chair cat",
-        "image": "./images/fluffy-chair.jpg"
+        "image": "./images/fluffy-chair.jpg",
+        "clicked": false
     },
     {
         "id": 6,
         "name": "fluffy chair cat",
-        "image": "./images/fluffy-chair.jpg"
+        "image": "./images/fluffy-chair.jpg",
+        "clicked": false
     }
 ]
