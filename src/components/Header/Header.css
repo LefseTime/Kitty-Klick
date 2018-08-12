@@ -1,0 +1,7 @@
+.header {
+    grid-column-start: span 4;
+    text-align: center;
+    /* position: fixed; */
+    /* top: 0;
+    width: 100%; */
+}
