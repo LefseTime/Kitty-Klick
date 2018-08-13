@@ -9,22 +9,61 @@ import './App.css';
 class App extends React.Component {
   state = {
     kitties: kitties,
-    fail: false
+    clicked: [],
+    fail: 0
   }
 
-  clickKitty = (kittyId) => {
-    console.log('yaaaasssssss')
+  componentDidMount = () => {
+    this.kittyShuffle();
+  }
 
-    const newKittiesList = this.state.kitties.map(kitty => {
+  kittyShuffle = () => {
+    const shuffledKittiesList = this.state.kitties;
+    //console.log(shuffledKittiesList)
+    for (let i = shuffledKittiesList.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [shuffledKittiesList[i], shuffledKittiesList[j]] = [shuffledKittiesList[j], shuffledKittiesList[i]];
+    }
+    this.setState({ kitties: shuffledKittiesList });
+  };
+
+  clickKitty = (kittyId) => {
+    //console.log('yaaaasssssss')
+
+    const newClickedArray = this.state.clicked;
+    this.state.kitties.map(kitty => {
       //console.log(kittyId)
       if (kitty.id === kittyId) {
-        return kitty.clicked = true
-        // return console.log(kitty.clicked)
+        for (let i = 0; i < newClickedArray.length; i++) {
+          if (this.state.clicked[i] === kittyId) {
+            return this.FAILURE();
+          }
+        }
+        newClickedArray.push(kittyId);
+        this.setState({ clicked: newClickedArray })
+        console.log(this.state.clicked);
+        this.kittyShuffle();
+
+
+        // if (this.state.clicked[kitty.id - 1] === true) {
+        //   return this.FAILURE()
+        // }
+        // else {
+        //   return newClickedArray[kitty.id - 1] = true
+        // }
+        // // return console.log(kitty.clicked)     typed by the cat: ik∆≥
       }
-      else return kitty.clicked = false;
+      //else { return }
     });
-    console.log(newKittiesList);
-    this.setState({kitties:newKittiesList})
+    // this.setState({ clicked: newClickedArray })
+    // console.log(this.state.clicked);
+    // this.kittyShuffle();
+  }
+
+  FAILURE = () => {
+    console.log('FAILURE')
+    this.setState({ clicked: [] })
+    this.kittyShuffle();
   }
 
   render = () => (
