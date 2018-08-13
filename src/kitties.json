@@ -7,32 +7,68 @@
     },
     {
         "id": 2,
-        "name": "fluffy chair cat",
-        "image": "./images/fluffy-chair.jpg",
+        "name": "wrinkly cat",
+        "image": "./images/wrinkles.jpg",
         "clicked": false
     },
     {
         "id": 3,
-        "name": "fluffy chair cat",
-        "image": "./images/fluffy-chair.jpg",
+        "name": "munchkin cat",
+        "image": "./images/munchkin.jpg",
         "clicked": false
     },
     {
         "id": 4,
-        "name": "fluffy chair cat",
-        "image": "./images/fluffy-chair.jpg",
+        "name": "calico cat",
+        "image": "./images/calico.jpg",
         "clicked": false
     },
     {
         "id": 5,
-        "name": "fluffy chair cat",
-        "image": "./images/fluffy-chair.jpg",
+        "name": "snow cat",
+        "image": "./images/snow.jpg",
         "clicked": false
     },
     {
         "id": 6,
-        "name": "fluffy chair cat",
-        "image": "./images/fluffy-chair.jpg",
+        "name": "festive cat",
+        "image": "./images/festive.jpg",
+        "clicked": false
+    },
+    {
+        "id": 7,
+        "name": "fluffiest cat",
+        "image": "./images/fluffiest.jpg",
+        "clicked": false
+    },
+    {
+        "id": 8,
+        "name": "bread cat",
+        "image": "./images/bread.jpg",
+        "clicked": false
+    },
+    {
+        "id": 9,
+        "name": "judgmental cat",
+        "image": "./images/judgmental.jpg",
+        "clicked": false
+    },
+    {
+        "id": 10,
+        "name": "gray tabby cat",
+        "image": "./images/gray-fluff.jpg",
+        "clicked": false
+    },
+    {
+        "id": 11,
+        "name": "sad bowl cat",
+        "image": "./images/sad-bowl.jpg",
+        "clicked": false
+    },
+    {
+        "id": 12,
+        "name": "photogenic cat",
+        "image": "./images/photogenic.jpeg",
         "clicked": false
     }
 ]

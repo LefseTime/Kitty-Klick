@@ -1,4 +1,11 @@
 img {
     margin: 10% 10% 10% 10%;
     max-width: 80%;
+    border-radius: 15px;
+    transition: transform .2s;
+    /* border: 5px solid #ddd; */
+}
+
+img:hover {
+    transform: scale(1.1);
 }

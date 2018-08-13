@@ -1,4 +1,10 @@
 .wrapper {
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%
+    grid-template-columns: 25% 25% 25% 25%;
+    background-image: url("../../images/Subtle-Light-Tile-Pattern-Vol5.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center top; 
+    font-family: 'Sniglet', cursive;
+    color: #2d373d
 }
