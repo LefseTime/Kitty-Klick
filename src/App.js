@@ -6,11 +6,12 @@ import kitties from "./kitties.json";
 //import logo from './logo.svg';
 import './App.css';
 
-class App extends React.Component {
+class App extends Component {
   state = {
     kitties: kitties,
     clicked: [],
-    fail: 0
+    score: 0,
+    highScore: 0
   }
 
   componentDidMount = () => {
@@ -19,7 +20,6 @@ class App extends React.Component {
 
   kittyShuffle = () => {
     const shuffledKittiesList = this.state.kitties;
-    //console.log(shuffledKittiesList)
     for (let i = shuffledKittiesList.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       [shuffledKittiesList[i], shuffledKittiesList[j]] = [shuffledKittiesList[j], shuffledKittiesList[i]];
@@ -27,48 +27,62 @@ class App extends React.Component {
     this.setState({ kitties: shuffledKittiesList });
   };
 
-  clickKitty = (kittyId) => {
-    //console.log('yaaaasssssss')
+  clickKitty = id => {
+    if (this.state.clicked.indexOf(id) === -1) {
+      this.success();
+      this.setState({ clicked: this.state.clicked.concat(id) });
+      this.kittyShuffle();
+    } else {
+      this.FAILURE();
+    }
+  };
 
-    const newClickedArray = this.state.clicked;
-    this.state.kitties.map(kitty => {
-      //console.log(kittyId)
-      if (kitty.id === kittyId) {
-        for (let i = 0; i < newClickedArray.length; i++) {
-          if (this.state.clicked[i] === kittyId) {
-            return this.FAILURE();
-          }
-        }
-        newClickedArray.push(kittyId);
-        this.setState({ clicked: newClickedArray })
-        console.log(this.state.clicked);
-        this.kittyShuffle();
+  // FAILED CODE, WASTED HOURS, DARK DESPAIR
+  // clickKitty = (kittyId) => {
 
+  //   console.log(this.state.kitties)
+  //   console.log(this.state.clicked)
+  //   let newClickedArray = this.state.clicked;
+  //   this.state.kitties.map(kitty => {
+  //     if (kitty.id === kittyId) {
+  //       console.log("just clicked: ", kitty.id)
+  //       newClickedArray.map(clickedArrayId => {
+  //         if (clickedArrayId === kitty.id) {
+  //           console.log("matched at: ", clickedArrayId, kitty.id)
+  //           return this.FAILURE();
+  //         }
+  //         return (console.log('not a match'));
+  //       })
+  //       newClickedArray.push(kitty.id);
+  //       return this.setState({ clicked: newClickedArray });
+  //     }
+  //     else {
+  //       return (console.log('Cheese is good.'))
+  //     }
+  //   });
+  //   return this.kittyShuffle();
+  // }
 
-        // if (this.state.clicked[kitty.id - 1] === true) {
-        //   return this.FAILURE()
-        // }
-        // else {
-        //   return newClickedArray[kitty.id - 1] = true
-        // }
-        // // return console.log(kitty.clicked)     typed by the cat: ik∆≥
-      }
-      //else { return }
-    });
-    // this.setState({ clicked: newClickedArray })
-    // console.log(this.state.clicked);
-    // this.kittyShuffle();
+  success = () => {
+    const newScore = this.state.score + 1
+    this.setState({ score: newScore})
+    if (newScore >= this.state.highScore) {
+      this.setState({ highScore: newScore });
+    }
   }
 
   FAILURE = () => {
     console.log('FAILURE')
-    this.setState({ clicked: [] })
-    this.kittyShuffle();
+    this.setState({ 
+      clicked: [],
+      score: 0 
+    })
+    this.kittyShuffle()
+    return
   }
 
   render = () => (
     <Wrapper>
-      <Header />
       <div className="basic-info">
         <div className="title-container">
           <h1 className="title">Kitty Klick</h1>
@@ -77,6 +91,11 @@ class App extends React.Component {
           <p>Click each kitty only once!</p>
         </div>
       </div>
+      <Header 
+        score={this.state.score}
+        highScore={this.state.highScore}
+        className="header"
+      />
       {
         this.state.kitties.map(kitty => {
           return (

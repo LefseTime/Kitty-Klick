@@ -1,6 +1,10 @@
 .header {
     grid-column-start: span 4;
     text-align: center;
+    background-color: rgba(176, 196, 222, .7);
+    padding-top: .2em;
+    padding-bottom: .2em;
+    line-height: .5em;
     /* position: fixed; */
     /* top: 0;
     width: 100%; */

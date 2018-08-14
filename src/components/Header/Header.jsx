@@ -2,7 +2,10 @@ import React from "react";
 import "./Header.css";
 
 const Header = props => (
-    <h2>Score: </h2>
+    <div className={props.className}>
+        <h2>Current Kitties Klicked: {props.score}</h2>
+        <h2>Most Kitties Klicked: {props.highScore}</h2>
+    </div>
 );
 
 export default Header;
